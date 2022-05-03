@@ -110,10 +110,11 @@ def verify_decode_jwt(token):
 def check_permissions(permission, payload):
     print(permission)
     print('payload: {}'.format(payload))
+
     if 'permissions' not in payload:
         abort(400)
 
-    if permission not in payload['permission']:
+    if permission not in payload['permissions']:
         abort(403)
 
     return True
